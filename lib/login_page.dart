@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'validators.dart';
 import 'auth_errorrs.dart';
+import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -118,6 +119,14 @@ class _LoginPageState extends State<LoginPage> {
                   TextButton(
                     onPressed: _loading ? null : _resetPassword,
                     child: const Text('¿Olvidaste tu contraseña?'),
+                  ),
+                  TextButton(
+                    onPressed: _loading ? null : () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => const RegisterPage()),
+                      );
+                    },
+                    child: const Text('¿No tienes cuenta? Regístrate'),
                   ),
                   const SizedBox(height: 8),
                   const _SmallPrint(),
